@@ -1,19 +1,24 @@
 /* global $ */
 class App {
+  constructor(gradeTable) {
+    this.gradeTable = gradeTable;
+    this.handleGetGradeError = this.handleGetGradeError.bind(this);
+    this.handleGetGradeSuccess = this.handleGetGradeSuccess.bind(this);
+  }
   handleGetGradeError(error) {
     console.log("Error!");
   }
   handleGetGradeSuccess(grades) {
-    console.log("Success!");
-  }
-  constructor() {
-    this.handleGetGradeError();
-    this.handleGetGradeSuccess();
+    this.gradeTable.updateGrades(grades);
   }
   getGrades() {
   $.ajax('https://sgt.lfzprototypes.com/api/grades', {
+    type: 'GET',
     error: this.handleGetGradeError,
     success: this.handleGetGradeSuccess,
+    headers: {
+              'X-Access-Token': 'qCk8Xlz9'
+             }
   });
   }
   start() {

@@ -2,11 +2,11 @@
 <html>
   <head>
     <title>Student Grade Table</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap-grid.min.css" rel="stylesheet">
   </head>
   <body>
-    <table class= "table table-dark">
-      <thead>
+    <table class= "table-dark">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Student Name</th>
           <th scope="col">Course</th>
@@ -14,25 +14,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Tim Berners-Lee</td>
-          <td>Web Development</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>Scott Bowler</td>
-          <td>Web Development</td>
-          <td>100</td>
-        </tr>
-        <tr>
-          <td>Tim Davis</td>
-          <td>Web Development</td>
-          <td>50</td>
-        </tr>
+
       </tbody>
     </table>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="components/app.js"></script>
+    <script src="components/grade-table.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
