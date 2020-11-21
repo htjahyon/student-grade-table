@@ -1,0 +1,32 @@
+div {
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  margin-bottom:2%;
+}
+.title {
+  float:left;
+  margin-right: 35%;
+}
+.avg-text {
+  float:right;
+  margin: 1% 6% 1% 5%;
+}
+.avg-grade {
+  background-color:gray;
+  margin: 1% 1% 1% 0%;
+  border:2px solid;
+  color:white;
+}
+table {
+  width:80%;
+  margin:0 auto;
+  border:2px solid;
+}
+.top-row {
+  background-color:lightgray;
+}
+th, td {
+  border-left:2px solid;
+  border-right:2px solid;
+}

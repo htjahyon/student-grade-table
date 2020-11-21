@@ -2,12 +2,18 @@
 <html>
   <head>
     <title>Student Grade Table</title>
+    <link href="style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <table class= "table-striped">
-      <thead class="thead-dark text-center">
-        <tr>
+    <div>
+      <h1 class="title">Student Grade Table</h1>
+      <h3 class="avg-text">Average Grade</h3>
+      <h3 class="avg-grade">0</h3>
+    </div>
+    <table class="table-striped">
+      <thead class="text-center">
+        <tr class="top-row">
           <th scope="col">Student Name</th>
           <th scope="col">Course</th>
           <th scope="col">Grade</th>
