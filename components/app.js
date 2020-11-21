@@ -11,7 +11,7 @@ class App {
     this.handleGetGradeSuccess();
   }
   getGrades() {
-  $.ajax('https://sgt.lfzprototypes.com', {
+  $.ajax('https://sgt.lfzprototypes.com/api/grades', {
     error: this.handleGetGradeError,
     success: this.handleGetGradeSuccess,
   });
