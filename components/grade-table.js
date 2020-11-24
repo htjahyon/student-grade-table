@@ -17,7 +17,6 @@ class GradeTable {
       totalGrade += grades[i].grade;
       rowElement.append(studentElement, courseElement, gradeElement);
     }
-    var avgGradeElement = document.querySelector(".avg-grade");
-    avgGradeElement.textContent = totalGrade / grades.length;
+    return totalGrade/grades.length;
   }
 }

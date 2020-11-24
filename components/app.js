@@ -10,7 +10,8 @@ class App {
     console.log("Error!");
   }
   handleGetGradeSuccess(grades) {
-    this.gradeTable.updateGrades(grades);
+    var avg = this.gradeTable.updateGrades(grades);
+    this.pageHeader.updateAverage(avg);
   }
   getGrades() {
   $.ajax('https://sgt.lfzprototypes.com/api/grades', {
