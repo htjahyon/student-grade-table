@@ -1,7 +1,8 @@
 /* global $ */
 class App {
-  constructor(gradeTable) {
+  constructor(gradeTable, pageHeader) {
     this.gradeTable = gradeTable;
+    this.pageHeader = pageHeader;
     this.handleGetGradeError = this.handleGetGradeError.bind(this);
     this.handleGetGradeSuccess = this.handleGetGradeSuccess.bind(this);
   }
@@ -9,7 +10,8 @@ class App {
     console.log("Error!");
   }
   handleGetGradeSuccess(grades) {
-    this.gradeTable.updateGrades(grades);
+    var avg = this.gradeTable.updateGrades(grades);
+    this.pageHeader.updateAverage(avg);
   }
   getGrades() {
   $.ajax('https://sgt.lfzprototypes.com/api/grades', {
