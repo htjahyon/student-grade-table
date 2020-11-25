@@ -3,7 +3,6 @@ class PageHeader {
     this.headerElement = headerElement;
   }
   updateAverage(newAverage) {
-    var avgGradeElement = document.querySelector(".avg-grade");
-    avgGradeElement.textContent = newAverage;
+    this.headerElement.textContent = newAverage;
   }
 }
