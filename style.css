@@ -13,7 +13,6 @@
   border:2px solid;
 }
 table {
-  width:80%;
   border:2px solid;
 }
 .top-row {
@@ -26,7 +25,6 @@ th, td {
 .inputs {
   display:flex;
   flex-direction:column;
-  width:50%;
 }
 input {
   margin-bottom:2%;
