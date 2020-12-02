@@ -47,10 +47,9 @@ class App {
     });
   }
   handleCreateGradeError(error) {
-    console.error();
-    console.log("Error Dude!");
+    console.error("Grade creation failed: Network connection could not be established");
   }
-  handleCreateGradeSuccess() {
-    this.handleGetGradeSuccess();
+  handleCreateGradeSuccess(grades) {
+    this.getGrades();
   }
 }

@@ -9,13 +9,10 @@ class GradeForm {
   }
   handleSubmit(event) {
     event.preventDefault();
-    /*var formData = new FormData(document.querySelector('form'));
+    var formData = new FormData(event.target);
     var name = formData.get('name');
     var course = formData.get('course');
-    var grade = formData.get('grade');*/
-    var name = document.querySelector("#name1").value;
-    var course = document.querySelector("#course1").value;
-    var grade = document.querySelector("#grade1").value;
+    var grade = formData.get('grade');
     this.createGrade(name, course, grade);
     event.target.reset();
   }
