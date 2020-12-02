@@ -9,6 +9,9 @@ class App {
     this.createGrade = this.createGrade.bind(this);
     this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
     this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
+    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this);
+    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
   }
   handleGetGradeError(error) {
     console.log("Error!");
@@ -49,7 +52,16 @@ class App {
   handleCreateGradeError(error) {
     console.error("Grade creation failed: Network connection could not be established");
   }
-  handleCreateGradeSuccess(grades) {
+  handleCreateGradeSuccess() {
+    this.getGrades();
+  }
+  deleteGrade(id) {
+    console.log("id: " + id);
+  }
+  handleDeleteGradeError(error) {
+    console.error("Delete grade failed.");
+  }
+  handleDeleteGradeSuccess() {
     this.getGrades();
   }
 }

@@ -25,7 +25,8 @@ class GradeTable {
   }
   destroy() {
     var tbodyElement = document.querySelector("tbody");
-    for (var j = 1; j <= tbodyElement.childNodes.length; j++) {
+    const bodyLength = tbodyElement.childNodes.length;
+    for (var j = 1; j <= bodyLength; j++) {
         tbodyElement.childNodes[0].remove();
     }
   }
