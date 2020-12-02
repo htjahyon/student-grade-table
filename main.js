@@ -1,5 +1,6 @@
 var tableElement = document.querySelector(".table");
-var gradeTable = new GradeTable(tableElement);
+var pElement = document.querySelector("#no-grades");
+var gradeTable = new GradeTable(tableElement, pElement);
 var headerElement = document.querySelector(".avg-grade");
 var pageHeader = new PageHeader(headerElement);
 var form = document.querySelector("form");
