@@ -1,4 +1,8 @@
-header {
+.container {
+  display:flex;
+  flex-direction:column;
+}
+.row {
   display:flex;
   flex-direction:row;
   width:100%;
@@ -9,8 +13,6 @@ header {
   border:2px solid;
 }
 table {
-  width:80%;
-  margin:0 auto;
   border:2px solid;
 }
 .top-row {
@@ -19,4 +21,14 @@ table {
 th, td {
   border-left:2px solid;
   border-right:2px solid;
+}
+.inputs {
+  display:flex;
+  flex-direction:column;
+}
+input {
+  margin-bottom:2%;
+}
+button {
+  margin-left:2%;
 }

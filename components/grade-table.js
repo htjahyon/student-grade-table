@@ -4,9 +4,13 @@ class GradeTable {
   }
   updateGrades(grades) {
     var tbodyElement = document.querySelector("tbody");
+    if(tbodyElement.childNodes.length > 1) {
+      this.destroy();
+    }
     var totalGrade = 0;
     for(var i = 0; i < grades.length; i++) {
     var rowElement = document.createElement("tr");
+    rowElement.className = "dataRow";
     tbodyElement.appendChild(rowElement);
     var studentElement = document.createElement("td");
     var courseElement = document.createElement("td");
@@ -18,5 +22,11 @@ class GradeTable {
       rowElement.append(studentElement, courseElement, gradeElement);
     }
     return totalGrade/grades.length;
+  }
+  destroy() {
+    var tbodyElement = document.querySelector("tbody");
+    for (var j = 1; j <= tbodyElement.childNodes.length; j++) {
+        tbodyElement.childNodes[0].remove();
+    }
   }
 }

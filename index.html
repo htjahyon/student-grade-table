@@ -3,6 +3,7 @@
   <head>
     <title>Student Grade Table</title>
      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
      <link href="style.css" rel="stylesheet">
     </head>
   <body>
@@ -12,7 +13,8 @@
         <h3 class="col-md-3">Average Grade</h3>
         <h3 class="avg-grade badge badge-secondary col-md-1">0</h3>
       </header>
-      <table class="table-striped">
+    <section class="row">
+      <table class="table-striped col-8">
         <thead class="text-center">
           <tr class="top-row">
             <th scope="col">Student Name</th>
@@ -21,14 +23,26 @@
           </tr>
         </thead>
         <tbody class="text-center">
-
         </tbody>
       </table>
+        <form class="col-4" id="form-element">
+          <div class="inputs">
+            <input name="name" type="name" class="form-control" id="name1" value="Name">
+            <input name="course" type="course" class="form-control" id="course1" value="Course">
+            <input name="grade" type="grade" class="form-control" id="grade1" value="Grade">
+          </div>
+          <div class="buttons">
+            <button type="submit" class="add">Add</button>
+            <button type="reset" class="cancel">Cancel</button>
+          </div>
+        </form>
+      </section>
+  </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
       <script src="components/app.js"></script>
       <script src="components/grade-table.js"></script>
       <script src="components/page-header.js"></script>
+      <script src="components/grade-form.js"></script>
       <script src="main.js"></script>
-    </div>
   </body>
 </html>
