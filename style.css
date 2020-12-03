@@ -7,6 +7,12 @@
   flex-direction:row;
   width:100%;
   margin-bottom:2%;
+  justify-content: center;
+}
+.partition {
+  display:flex;
+  flex-direction:column;
+  width:50%;
 }
 .avg-grade {
   font-size:25px;
@@ -31,4 +37,9 @@ input {
 }
 button {
   margin-left:2%;
+}
+#no-grades {
+  font-size: 30px;
+  width:50%;
+  margin:0 auto;
 }

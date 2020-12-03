@@ -5,28 +5,25 @@ class GradeTable {
   }
   updateGrades(grades) {
     var pElement = document.querySelector("#no-grades");
-    if(grades.length === 0) {
-      pElement.className = "d-block";
-    }
-    else {
-      pElement.className = "d-none";
-    }
     var tbodyElement = document.querySelector("tbody");
-    if(tbodyElement.childNodes.length > 1) {
-      this.destroy();
-    }
+    pElement.className = "d-none";
+    this.destroy();
     var totalGrade = 0;
     for(var i = 0; i < grades.length; i++) {
       var rowElement = this.renderGradeRow(grades[i], this.deleteGrade);
       tbodyElement.appendChild(rowElement);
       totalGrade += grades[i].grade;
     }
+    if (grades.length === 0) {
+      pElement.className = "d-block";
+      return 0;
+    }
     return totalGrade/grades.length;
   }
   destroy() {
     var tbodyElement = document.querySelector("tbody");
     const tbodyLength = tbodyElement.childNodes.length;
-    for (var j = 1; j <= tbodyLength; j++) {
+    for (var j = 0; j < tbodyLength; j++) {
         tbodyElement.childNodes[0].remove();
     }
   }
