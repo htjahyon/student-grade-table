@@ -4,9 +4,8 @@ class GradeTable {
     this.noGradesElement = noGradesElement;
   }
   updateGrades(grades) {
-    var pElement = document.querySelector("#no-grades");
     var tbodyElement = document.querySelector("tbody");
-    pElement.className = "d-none";
+    this.noGradesElement.className = "d-none";
     this.destroy();
     var totalGrade = 0;
     for(var i = 0; i < grades.length; i++) {
@@ -15,7 +14,7 @@ class GradeTable {
       totalGrade += grades[i].grade;
     }
     if (grades.length === 0) {
-      pElement.className = "d-block";
+      this.noGradesElement.className = "d-block";
       return 0;
     }
     return totalGrade/grades.length;
