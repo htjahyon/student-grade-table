@@ -1,4 +1,4 @@
-var tableElement = document.querySelector(".table");
+var tableElement = document.querySelector("tbody");
 var pElement = document.querySelector("#no-grades");
 var gradeTable = new GradeTable(tableElement, pElement);
 var headerElement = document.querySelector(".avg-grade");
