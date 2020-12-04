@@ -4,13 +4,12 @@ class GradeTable {
     this.noGradesElement = noGradesElement;
   }
   updateGrades(grades) {
-    var tbodyElement = document.querySelector("tbody");
     this.noGradesElement.className = "d-none";
     this.destroy();
     var totalGrade = 0;
     for(var i = 0; i < grades.length; i++) {
       var rowElement = this.renderGradeRow(grades[i], this.deleteGrade);
-      tbodyElement.appendChild(rowElement);
+      this.tableElement.appendChild(rowElement);
       totalGrade += grades[i].grade;
     }
     if (grades.length === 0) {
@@ -20,19 +19,17 @@ class GradeTable {
     return totalGrade/grades.length;
   }
   destroy() {
-    var tbodyElement = document.querySelector("tbody");
-    const tbodyLength = tbodyElement.childNodes.length;
+    const tbodyLength = this.tableElement.childNodes.length;
     for (var j = 0; j < tbodyLength; j++) {
-        tbodyElement.childNodes[0].remove();
+        this.tableElement.childNodes[0].remove();
     }
   }
   onDeleteClick(deleteGrade) {
     this.deleteGrade = deleteGrade;
   }
   renderGradeRow(data, deleteGrade) {
-    var tbodyElement = document.querySelector("tbody");
     var rowElement = document.createElement("tr");
-    tbodyElement.appendChild(rowElement);
+    this.tableElement.appendChild(rowElement);
     var studentElement = document.createElement("td");
     var courseElement = document.createElement("td");
     var gradeElement = document.createElement("td");
