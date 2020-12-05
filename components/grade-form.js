@@ -25,6 +25,7 @@ class GradeForm {
     var course = formData.get('course');
     var grade = formData.get('grade');
     this.createGrade(name, course, grade);
+    console.log("createGrade: " + name);
     event.target.reset();
   }
   handleUpdate(event) {
@@ -36,6 +37,7 @@ class GradeForm {
     this.changeGrade(name, course, grade);
     this.addFormElement.classList.remove("d-none");
     this.updateFormElement.classList.add("d-none");
+    console.log("changeGrade: " + name);
     event.target.reset();
   }
 }

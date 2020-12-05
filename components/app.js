@@ -8,21 +8,19 @@ class App {
     this.handleGetGradeError = this.handleGetGradeError.bind(this);
     this.handleGetGradeSuccess = this.handleGetGradeSuccess.bind(this);
     this.createGrade = this.createGrade.bind(this);
-    this.handleCreateGradeError = this.handleCreateGradeError.bind(this);
-    this.handleCreateGradeSuccess = this.handleCreateGradeSuccess.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
-    this.handleDeleteGradeError = this.handleDeleteGradeError.bind(this);
-    this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
     this.changeGrade = this.changeGrade.bind(this);
-    this.handleChangeGradeError = this.handleChangeGradeError.bind(this);
-    this.handleChangeGradeSuccess = this.handleChangeGradeSuccess.bind(this);
     this.identityNum = this.identityNum.bind(this);
+    this.array = [];
   }
   handleGetGradeError(error) {
     console.log("Error!");
   }
   handleGetGradeSuccess(grades) {
-    var avg = this.gradeTable.updateGrades(grades);
+    for(var i = 0; i < grades.length; i++) {
+      this.array.push(grades[i]);
+    }
+    var avg = this.gradeTable.updateGrades(this.array);
     this.pageHeader.updateAverage(avg);
   }
   getGrades() {
@@ -43,63 +41,28 @@ class App {
     this.gradeTable.identityTransfer(this.identityNum);
   }
   createGrade(name, course, grade) {
-    $.ajax('https://sgt.lfzprototypes.com/api/grades', {
-        type: 'POST',
-        error: this.handleCreateGradeError,
-        success: this.handleCreateGradeSuccess,
-        headers: {
-                  'X-Access-Token': 'qCk8Xlz9'
-                },
-        data: {
-                name: name,
-                course: course,
-                grade: grade
-              }
-    });
+      this.array.push( {
+                         id: this.array.length - 1,
+                         name: name,
+                         course: course,
+                         grade: grade
+      });
+    console.log(this.array);
+    this.gradeTable.updateGrades(this.array);
+    }
+  deleteGrade(rowNum) {
+        this.array.splice(rowNum, 1);
+      }
+    }
+    this.gradeTable.updateGrades(this.array);
   }
-  handleCreateGradeError(error) {
-    console.error("Grade creation failed: Network connection could not be established");
-  }
-  handleCreateGradeSuccess() {
-    this.getGrades();
-  }
-  deleteGrade(id) {
-    $.ajax('https://sgt.lfzprototypes.com/api/grades/' + id, {
-        type: 'DELETE',
-        error: this.handleDeleteGradeError,
-        success: this.handleDeleteGradeSuccess,
-        headers: {
-                  'X-Access-Token': 'qCk8Xlz9'
-                },
 
-      });
-  }
-  handleDeleteGradeError(error) {
-    console.error("Delete grade failed.");
-  }
-  handleDeleteGradeSuccess() {
-    this.getGrades();
-  }
   changeGrade(name, course, grade) {
-    $.ajax('https://sgt.lfzprototypes.com/api/grades/' + this.id, {
-        type: 'PATCH',
-        error: this.handleChangeGradeError,
-        success: this.handleChangeGradeSuccess,
-        headers: {
-          'X-Access-Token': 'qCk8Xlz9'
-        },
-        data: {
-                name: name,
-                course: course,
-                grade: grade
-        }
-      });
-  }
-  handleChangeGradeError(error) {
-    console.error("Change grade failed.");
-  }
-  handleChangeGradeSuccess() {
-    this.getGrades();
+    this.array[this.id].name = name;
+    this.array[this.id].course = course;
+    this.array[this.id].grade = grade
+    console.log(this.array);
+    this.gradeTable.updateGrades(this.array);
   }
   identityNum(id) {
     this.id = id;

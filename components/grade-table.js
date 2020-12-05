@@ -3,20 +3,20 @@ class GradeTable {
     this.tableElement = tableElement;
     this.noGradesElement = noGradesElement;
   }
-  updateGrades(grades) {
+  updateGrades(array) {
     this.noGradesElement.className = "d-none";
     this.destroy();
     var totalGrade = 0;
-    for(var i = 0; i < grades.length; i++) {
-      var rowElement = this.renderGradeRow(grades[i], this.deleteGrade, this.identityNum);
+    for(var i = 0; i < array.length; i++) {
+      var rowElement = this.renderGradeRow(array[i], this.deleteGrade, this.identityNum, i);
       this.tableElement.appendChild(rowElement);
-      totalGrade += grades[i].grade;
+      totalGrade += array[i].grade;
     }
-    if (grades.length === 0) {
+    if (array.length === 0) {
       this.noGradesElement.classList.remove = "d-none";
       return 0;
     }
-    return totalGrade/grades.length;
+    return totalGrade/array.length;
   }
   destroy() {
     const tbodyLength = this.tableElement.childNodes.length;
@@ -27,7 +27,7 @@ class GradeTable {
   onDeleteClick(deleteGrade) {
     this.deleteGrade = deleteGrade;
   }
-  renderGradeRow(data, deleteGrade, identityNum) {
+  renderGradeRow(data, deleteGrade, identityNum, rowNum) {
     var actionElement = document.querySelector(".action");
     var submitElement = document.querySelector(".submit");
     var rowElement = document.createElement("tr");
@@ -52,7 +52,7 @@ class GradeTable {
     deleteElement.addEventListener('click', function() {
       addForm.classList.remove("d-none");
       updateForm.classList.add("d-none");
-      deleteGrade(data.id);
+      deleteGrade(rowNum);
     });
     changeElement.addEventListener('click', function() {
       addForm.classList.add("d-none");
@@ -63,7 +63,7 @@ class GradeTable {
       inputName.setAttribute('value', data.name);
       inputCourse.setAttribute('value', data.course);
       inputGrade.setAttribute('value', data.grade);
-      identityNum(data.id);
+      identityNum(rowNum);
       });
     return rowElement;
   }
