@@ -47,13 +47,10 @@ class App {
                          course: course,
                          grade: grade
       });
-    console.log(this.array);
     this.gradeTable.updateGrades(this.array);
     }
   deleteGrade(rowNum) {
-        this.array.splice(rowNum, 1);
-      }
-    }
+    this.array.splice(rowNum, 1);
     this.gradeTable.updateGrades(this.array);
   }
 
@@ -61,7 +58,6 @@ class App {
     this.array[this.id].name = name;
     this.array[this.id].course = course;
     this.array[this.id].grade = grade
-    console.log(this.array);
     this.gradeTable.updateGrades(this.array);
   }
   identityNum(id) {
