@@ -44,7 +44,7 @@ class App {
                          id: this.array.length - 1,
                          name: name,
                          course: course,
-                         grade: grade
+                         grade: Number(grade)
       });
     this.refresh();
     }
