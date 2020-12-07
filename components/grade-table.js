@@ -13,7 +13,7 @@ class GradeTable {
       totalGrade += array[i].grade;
     }
     if (array.length === 0) {
-      this.noGradesElement.classList.remove = "d-none";
+      this.noGradesElement.classList.remove("d-none");
       return 0;
     }
     return totalGrade/array.length;

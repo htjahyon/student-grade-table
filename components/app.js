@@ -20,8 +20,7 @@ class App {
     for(var i = 0; i < grades.length; i++) {
       this.array.push(grades[i]);
     }
-    var avg = this.gradeTable.updateGrades(this.array);
-    this.pageHeader.updateAverage(avg);
+    this.refresh();
   }
   getGrades() {
   $.ajax('https://sgt.lfzprototypes.com/api/grades', {
@@ -47,20 +46,24 @@ class App {
                          course: course,
                          grade: grade
       });
-    this.gradeTable.updateGrades(this.array);
+    this.refresh();
     }
   deleteGrade(rowNum) {
     this.array.splice(rowNum, 1);
-    this.gradeTable.updateGrades(this.array);
+    this.refresh();
   }
 
   changeGrade(name, course, grade) {
     this.array[this.id].name = name;
     this.array[this.id].course = course;
-    this.array[this.id].grade = grade
-    this.gradeTable.updateGrades(this.array);
+    this.array[this.id].grade = Number(grade);
+    this.refresh();
   }
   identityNum(id) {
     this.id = id;
+  }
+  refresh() {
+    var avg = this.gradeTable.updateGrades(this.array);
+    this.pageHeader.updateAverage(avg);
   }
 }
