@@ -13,6 +13,7 @@
   display:flex;
   flex-direction:column;
   width:50%;
+  height: 50px;
 }
 .avg-grade {
   font-size:25px;
@@ -42,5 +43,5 @@ button {
   font-size: 30px;
   width:50%;
   margin:0 auto;
-  margin-bottom: 15%;
+  margin-bottom: 28%;
 }
